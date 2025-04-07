@@ -32,11 +32,6 @@ const ParticlesComponent = (props) => {
         color: {
           value: "#0b0501",
         },
-        gradient: {
-          type: "linear",
-          direction: "bottom",
-          colors: ["#0b0501", "#1e0908"],
-        },
       },
       fpsLimit: 120,
       interactivity: {
@@ -44,7 +39,7 @@ const ParticlesComponent = (props) => {
         events: {
           onClick: {
             enable: true,
-            mode: "push",
+            mode: "repulse",
           },
           onHover: {
             enable: true,
@@ -59,22 +54,9 @@ const ParticlesComponent = (props) => {
               opacity: 1,
             },
           },
-          bubble: {
-            distance: 500,
-            size: 100,
-            duration: 2,
-            opacity: 1,
-            speed: 3,
-          },
           repulse: {
-            distance: 50,
+            distance: 200,
             duration: 0.4,
-          },
-          push: {
-            quantity: 4,
-          },
-          remove: {
-            quantity: 2,
           },
         },
       },
@@ -103,9 +85,20 @@ const ParticlesComponent = (props) => {
             width: 100,
             height: 100,
           },
+          type: "polygon",
         },
+        // size: {
+        //   value: 0,
+        //   random: true,
+        //   anim: {
+        //     enable: true,
+        //     speed: 40,
+        //     size_min: 0.1,
+        //     sync: true,
+        //   },
+        // },
         opacity: {
-          value: 0.5,
+          value: 0,
           random: true,
           anim: {
             enable: true,
@@ -115,17 +108,17 @@ const ParticlesComponent = (props) => {
           },
         },
         size: {
-          value: 3,
+          value: 5,
           random: true,
           anim: {
-            enable: false,
-            speed: 40,
+            enable: true,
+            speed: 20,
             size_min: 0.1,
-            sync: false,
+            sync: true,
           },
         },
         links: {
-          enable: true,
+          enable: false ,
           distance: 150,
           color: "#f5d213",
           opacity: 0.4,
@@ -133,12 +126,13 @@ const ParticlesComponent = (props) => {
         },
         move: {
           enable: true,
-          speed: 3,
+          speed: 1.5,
           direction: "none",
           random: true,
           straight: false,
-          out_mode: "bounce",
-          bounce: false,
+          outModes: {
+            default: "bounce",
+          },
           attract: {
             enable: true,
             rotateX: 600,
@@ -146,49 +140,11 @@ const ParticlesComponent = (props) => {
           },
         },
       },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "grab",
-          },
-          onclick: {
-            enable: true,
-            mode: "push",
-          },
-          resize: true,
-        },
-        modes: {
-          grab: {
-            distance: 200,
-            links: {
-              opacity: 1,
-            },
-          },
-          bubble: {
-            distance: 500,
-            size: 100,
-            duration: 2,
-            opacity: 1,
-            speed: 3,
-          },
-          repulse: {
-            distance: 50,
-            duration: 0.4,
-          },
-          push: {
-            particles_nb: 4,
-          },
-          remove: {
-            particles_nb: 2,
-          },
-        },
-      },
-      retina_detect: true,
+      detectRetina: true,
     }),
     []
   );
+
 
   if (init) {
     return (
