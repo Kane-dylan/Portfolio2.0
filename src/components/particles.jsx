@@ -32,6 +32,11 @@ const ParticlesComponent = (props) => {
         color: {
           value: "#0b0501",
         },
+        // image:
+        //   "url('https://static.vecteezy.com/system/resources/previews/037/129/121/non_2x/seamless-grid-pattern-background-gradient-color-simple-minimal-grid-line-background-with-copy-space-illustration-vector.jpg')",
+        position: "50% 50%",
+        repeat: "no-repeat",
+        size: "cover",
       },
       fpsLimit: 120,
       interactivity: {
@@ -62,7 +67,7 @@ const ParticlesComponent = (props) => {
       },
       particles: {
         number: {
-          value: 50,
+          value: 100,
           density: {
             enable: true,
             value_area: 1000,
@@ -118,23 +123,23 @@ const ParticlesComponent = (props) => {
           },
         },
         links: {
-          enable: false ,
-          distance: 150,
+          enable: false,
+          distance: 250,
           color: "#f5d213",
           opacity: 0.4,
           width: 1,
         },
         move: {
-          enable: true,
-          speed: 1.5,
+          enable: false,
+          speed: 0,
           direction: "none",
           random: true,
-          straight: false,
+          straight: true,
           outModes: {
             default: "bounce",
           },
           attract: {
-            enable: true,
+            enable: false,
             rotateX: 600,
             rotateY: 1200,
           },
@@ -144,7 +149,6 @@ const ParticlesComponent = (props) => {
     }),
     []
   );
-
 
   if (init) {
     return (
